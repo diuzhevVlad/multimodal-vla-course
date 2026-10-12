@@ -1,0 +1,18 @@
+{
+  "seed": 0,
+  "perturb": true,
+  "perturb_dx": 0.07,
+  "success": true,
+  "steps": 339,
+  "reward_sum": 310.0,
+  "max_reward": 4.0,
+  "model_calls": 339,
+  "inference_seconds": 2.54091139501179,
+  "wall_seconds": 5.355195009000454,
+  "arm_variation": 0.002071972815702823,
+  "gripper_variation": 0.004897450039255933,
+  "feedback_delay_steps": 0,
+  "setting": "older",
+  "checkpoint": "ba73b2766f1371cdc133ca4efb97eb090d744625",
+  "implementation": "reconstructed-head-ensemble_79894ee3a4"
+}
