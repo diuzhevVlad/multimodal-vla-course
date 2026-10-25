@@ -1,0 +1,408 @@
+{
+  "dataset": "BridgeData V2",
+  "version": "bridge_dataset/1.0.0",
+  "source_url": "https://rail.eecs.berkeley.edu/datasets/bridge_release/data/tfds/bridge_dataset/1.0.0/bridge_dataset-train.tfrecord-00000-of-01024",
+  "source_shard_sha256": "04e67b7ba8c66a1990d72f9fb2d0861d1203623c74d9d2c4d4678f928ba4f579",
+  "source_shard_bytes": 108381239,
+  "license": "CC BY 4.0",
+  "attribution": "Walke et al., BridgeData V2: A Dataset for Robot Learning at Scale (2023)",
+  "project_url": "https://rail-berkeley.github.io/bridgedata/",
+  "frequency_hz": 5,
+  "channels": [
+    "dx",
+    "dy",
+    "dz",
+    "droll",
+    "dpitch",
+    "dyaw",
+    "gripper_open"
+  ],
+  "units": [
+    "m/step",
+    "m/step",
+    "m/step",
+    "rad/step",
+    "rad/step",
+    "rad/step",
+    "0=closed, 1=open"
+  ],
+  "transform": "Drop original step 0; backward binarize gripper at <0.05 and >0.95; subtract consecutive state[:6]; drop last step. Original RGB index = standardized action index + 1.",
+  "event_rule": "gripper_open >= 0.5 means open; compare binary states and transition indices; index 0 is the initial state, not an event.",
+  "selection": "Manually fixed, nonempty English manipulation instructions in shard 0; split by whole episode. No carrot episode in this subset.",
+  "window_rule": "20-step windows per test episode: min/max mean absolute difference of train-scaled movement channels, restricted to windows at or above episode activity q25. Correction is a signal label, not a verified semantic event.",
+  "episodes": [
+    {
+      "key": "ep_000",
+      "source_record_index": 0,
+      "source_episode_id": 1,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/bridge_data_v1/berkeley/toykitchen1/put_small_spoon_from_basket_to_tray/train/out.npy",
+      "record_sha256": "c76f6f3765709f1ca6396f0555bf22129ba3a48e26b36de16acf0cdd12418b39",
+      "instruction": "put small spoon from basket to tray",
+      "split": "train",
+      "steps": 26
+    },
+    {
+      "key": "ep_001",
+      "source_record_index": 1,
+      "source_episode_id": 32,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/bridge_data_v2/deepthought_folding_table/stack_blocks/21/train/out.npy",
+      "record_sha256": "7e06896ea7161ab7e9e01dc8de6c59d6a1a137383809121e886ef7a3f85c1067",
+      "instruction": "put the blue cube on the right side of the table on top of the rectangular block",
+      "split": "train",
+      "steps": 45
+    },
+    {
+      "key": "ep_002",
+      "source_record_index": 2,
+      "source_episode_id": 15,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/rss/toykitchen2/pnp_sweep/120/train/out.npy",
+      "record_sha256": "1ba4a6f7560289c62d0c5fe60abb9d81450533f237884c84a5ad4a767a2909c5",
+      "instruction": "put the red object into the pot",
+      "split": "train",
+      "steps": 45
+    },
+    {
+      "key": "ep_003",
+      "source_record_index": 3,
+      "source_episode_id": 24,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/bridge_data_v2/deepthought_toykitchen2/stack_blocks/09/train/out.npy",
+      "record_sha256": "18cda41d6d5a756593d4238fa8db30651dcfa64af4e7252dcd7adb74d580440b",
+      "instruction": "put the rectangle block on top of the red arch and yellow block",
+      "split": "train",
+      "steps": 46
+    },
+    {
+      "key": "ep_005",
+      "source_record_index": 5,
+      "source_episode_id": 38,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/bridge_data_v1/berkeley/toykitchen1/take_broccoli_out_of_pan/train/out.npy",
+      "record_sha256": "5ffb9cbb1ebbce0a862ee3b81e82388dbc781f7ea5eff093471f9dd2c95a947f",
+      "instruction": "take broccoli out of pan",
+      "split": "train",
+      "steps": 25
+    },
+    {
+      "key": "ep_006",
+      "source_record_index": 6,
+      "source_episode_id": 30,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/bridge_data_v2/datacol2_tabletop_dark_wood/drawer_pnp/12/train/out.npy",
+      "record_sha256": "9ddee1630ec77396822fabd72369c8b5cd487d50bd77af28de2757615374d5db",
+      "instruction": "Picked the piece of chocolate and put it into the drawer",
+      "split": "train",
+      "steps": 45
+    },
+    {
+      "key": "ep_007",
+      "source_record_index": 7,
+      "source_episode_id": 16,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/bridge_data_v2/datacol1_toykitchen1/many_skills/00/train/out.npy",
+      "record_sha256": "b846e033871de6731fcb954c5e4decc87bcc714e43289ebc33b81f56d6b04060",
+      "instruction": "Move the blue fork to the lower right burner",
+      "split": "train",
+      "steps": 31
+    },
+    {
+      "key": "ep_008",
+      "source_record_index": 8,
+      "source_episode_id": 15,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/bridge_data_v2/datacol2_tabletop_dark_wood/drawer_pnp/10/train/out.npy",
+      "record_sha256": "db8fadd06ce015ab3b7d80933481d59ae064c7d386c09c04a3420b84d4fb52b9",
+      "instruction": "open the drawer",
+      "split": "train",
+      "steps": 32
+    },
+    {
+      "key": "ep_014",
+      "source_record_index": 14,
+      "source_episode_id": 13,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/icra/toykitchen_fixed_cam_resetfree/toykitchen1/05/train/out.npy",
+      "record_sha256": "e286a5792f6016b8a347518563323920030d2a8cf2a1c4242b12bc9c0fd15a2e",
+      "instruction": "move the silver pot to the lower right burner",
+      "split": "train",
+      "steps": 56
+    },
+    {
+      "key": "ep_016",
+      "source_record_index": 16,
+      "source_episode_id": 9,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/rss/toykitchen6/pnp_sweep/06/train/out.npy",
+      "record_sha256": "61f3774a4003d80ce92e2a7ed1a64150eb00ff3b57d0f95e51d0f34090dfe16d",
+      "instruction": "move the pan to the left side of the stove",
+      "split": "train",
+      "steps": 23
+    },
+    {
+      "key": "ep_018",
+      "source_record_index": 18,
+      "source_episode_id": 2,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/rss/toykitchen2/set_table/28/train/out.npy",
+      "record_sha256": "2a744b7d44acb5e9df58c0497079f710437bef1e86b9d035cdf43f52faf32003",
+      "instruction": "Pick up the blue fork and place it on the left of the pot",
+      "split": "train",
+      "steps": 46
+    },
+    {
+      "key": "ep_021",
+      "source_record_index": 21,
+      "source_episode_id": 12,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/bridge_data_v2/deepthought_robot_desk/drawer_pnp/41/train/out.npy",
+      "record_sha256": "b0d994403c45b48c00b1fe80e9e73c5c3d788192613c26a0ce65869eaa6b0a1b",
+      "instruction": "moved the green object and put it on the table",
+      "split": "train",
+      "steps": 36
+    },
+    {
+      "key": "ep_026",
+      "source_record_index": 26,
+      "source_episode_id": 4,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/bridge_data_v2/datacol1_toykitchen6/pnp_sweep/40/train/out.npy",
+      "record_sha256": "c285c713ed5f9828db4b42b3462123aec5e1cc6bcd828437aafeec4061d10e3d",
+      "instruction": "take out the object from the silver pot and put it on the orange cloth",
+      "split": "test",
+      "steps": 31
+    },
+    {
+      "key": "ep_028",
+      "source_record_index": 28,
+      "source_episode_id": 11,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/rss/toykitchen7/pnp_sweep/18/train/out.npy",
+      "record_sha256": "7fae96ad20e81a9c4c63d2305b2d7394f49d2b39fc835a6177101c841fba67a7",
+      "instruction": "Move the bowl closer to the bottom right of the table.",
+      "split": "test",
+      "steps": 31
+    },
+    {
+      "key": "ep_030",
+      "source_record_index": 30,
+      "source_episode_id": 16,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/bridge_data_v1/berkeley/toykitchen1/put_pear_in_bowl/train/out.npy",
+      "record_sha256": "2f7997278c2343af1d8b6a160291b6385adbefe728fde0b3241c437c8a36ea6f",
+      "instruction": "put pear in bowl",
+      "split": "test",
+      "steps": 26
+    },
+    {
+      "key": "ep_031",
+      "source_record_index": 31,
+      "source_episode_id": 16,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/rss/toykitchen7/pnp_sweep/12/train/out.npy",
+      "record_sha256": "819ce71164fb1d2c115badf99d876dd088b7ce782c2e21957a7477981db0d38f",
+      "instruction": "Put the potato into the bowl.",
+      "split": "test",
+      "steps": 28
+    },
+    {
+      "key": "ep_033",
+      "source_record_index": 33,
+      "source_episode_id": 9,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/rss/toykitchen6/pnp_sweep/62/train/out.npy",
+      "record_sha256": "67a4818436dc4096e62c31704e5f9774330b92aea73315fb2b69acdcb493fd57",
+      "instruction": "Moves the blue object to the top of the burner",
+      "split": "test",
+      "steps": 32
+    },
+    {
+      "key": "ep_037",
+      "source_record_index": 37,
+      "source_episode_id": 13,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/rss/toykitchen2/pnp_sweep/112/train/out.npy",
+      "record_sha256": "3f78c2e3099224758f4df8cd5d2e163a79afa79c49b68901b5787d8b6c7873ae",
+      "instruction": "Move the bowl to the bottom right corner of the table.",
+      "split": "test",
+      "steps": 46
+    },
+    {
+      "key": "ep_038",
+      "source_record_index": 38,
+      "source_episode_id": 4,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/icra/toykitchen_fixed_cam_resetfree/toysink3/08/train/out.npy",
+      "record_sha256": "a4289fe35ea10325a88c7b8c0e5bf12b0ab17277c79769894d9ee1d07c68ada4",
+      "instruction": "moved the knife  from inside the yellow container",
+      "split": "test",
+      "steps": 41
+    },
+    {
+      "key": "ep_044",
+      "source_record_index": 44,
+      "source_episode_id": 8,
+      "source_file_path": "/nfs/kun2/users/homer/datasets/bridge_data_all/numpy_256/bridge_data_v2/datacol1_toykitchen6/pnp_sweep/01/train/out.npy",
+      "record_sha256": "89ede2d7b2250643b8b6b6e2cf02aebf81323c3b1b8ce5ad22f09e6c7afdbbef",
+      "instruction": "put the blue brush on the lower right side of stove",
+      "split": "test",
+      "steps": 42
+    }
+  ],
+  "windows": [
+    {
+      "key": "ep_026",
+      "kind": "smooth",
+      "start": 1,
+      "length": 20,
+      "roughness": 0.0818941468941981,
+      "activity": 0.11328403817987874
+    },
+    {
+      "key": "ep_026",
+      "kind": "correction",
+      "start": 9,
+      "length": 20,
+      "roughness": 0.08976100034191302,
+      "activity": 0.1038500528370066
+    },
+    {
+      "key": "ep_028",
+      "kind": "smooth",
+      "start": 3,
+      "length": 20,
+      "roughness": 0.13290346826905022,
+      "activity": 0.19330240669163384
+    },
+    {
+      "key": "ep_028",
+      "kind": "correction",
+      "start": 10,
+      "length": 20,
+      "roughness": 0.15315956026660912,
+      "activity": 0.19847660622441984
+    },
+    {
+      "key": "ep_030",
+      "kind": "smooth",
+      "start": 4,
+      "length": 20,
+      "roughness": 0.08586328525026989,
+      "activity": 0.13161679357816394
+    },
+    {
+      "key": "ep_030",
+      "kind": "correction",
+      "start": 0,
+      "length": 20,
+      "roughness": 0.09342502705001911,
+      "activity": 0.16195796485144776
+    },
+    {
+      "key": "ep_031",
+      "kind": "smooth",
+      "start": 5,
+      "length": 20,
+      "roughness": 0.12224297523651814,
+      "activity": 0.1668482610280749
+    },
+    {
+      "key": "ep_031",
+      "kind": "correction",
+      "start": 0,
+      "length": 20,
+      "roughness": 0.1446538810470772,
+      "activity": 0.20715949874674203
+    },
+    {
+      "key": "ep_033",
+      "kind": "smooth",
+      "start": 6,
+      "length": 20,
+      "roughness": 0.08330530932702973,
+      "activity": 0.11360601843639752
+    },
+    {
+      "key": "ep_033",
+      "kind": "correction",
+      "start": 0,
+      "length": 20,
+      "roughness": 0.10745114470742745,
+      "activity": 0.1293706703902176
+    },
+    {
+      "key": "ep_037",
+      "kind": "smooth",
+      "start": 12,
+      "length": 20,
+      "roughness": 0.09186564911427149,
+      "activity": 0.12156608566294791
+    },
+    {
+      "key": "ep_037",
+      "kind": "correction",
+      "start": 25,
+      "length": 20,
+      "roughness": 0.1558898799685449,
+      "activity": 0.19583699884232111
+    },
+    {
+      "key": "ep_038",
+      "kind": "smooth",
+      "start": 14,
+      "length": 20,
+      "roughness": 0.09979994307406899,
+      "activity": 0.1170053423428506
+    },
+    {
+      "key": "ep_038",
+      "kind": "correction",
+      "start": 16,
+      "length": 20,
+      "roughness": 0.11697209698710799,
+      "activity": 0.14657088055587472
+    },
+    {
+      "key": "ep_044",
+      "kind": "smooth",
+      "start": 7,
+      "length": 20,
+      "roughness": 0.08197188794271666,
+      "activity": 0.11656659726230398
+    },
+    {
+      "key": "ep_044",
+      "kind": "correction",
+      "start": 21,
+      "length": 20,
+      "roughness": 0.12224892633792428,
+      "activity": 0.15343991003316365
+    }
+  ],
+  "stats": {
+    "q01": [
+      -0.031202558428049088,
+      -0.043335579335689545,
+      -0.030021322891116142,
+      -0.08437678217887878,
+      -0.09303067624568939,
+      -0.18791624903678894,
+      0.0
+    ],
+    "q99": [
+      0.026099465787410736,
+      0.03336801752448082,
+      0.04447777569293976,
+      0.058826521039009094,
+      0.05874756723642349,
+      0.13408590853214264,
+      1.0
+    ],
+    "mask": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false
+    ],
+    "train_keys": [
+      "ep_000",
+      "ep_001",
+      "ep_002",
+      "ep_003",
+      "ep_005",
+      "ep_006",
+      "ep_007",
+      "ep_008",
+      "ep_014",
+      "ep_016",
+      "ep_018",
+      "ep_021"
+    ]
+  }
+}
