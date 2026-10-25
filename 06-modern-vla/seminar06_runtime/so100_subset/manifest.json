@@ -1,0 +1,226 @@
+{
+  "dataset": "lerobot/svla_so100_pickplace",
+  "revision": "728583b5eaf9e739a7f119e2def466fa1d552402",
+  "fps": 30,
+  "chunk_size": 50,
+  "train_episodes": [
+    0,
+    1,
+    2
+  ],
+  "validation_episodes": [
+    49
+  ],
+  "channels": [
+    "main_shoulder_pan",
+    "main_shoulder_lift",
+    "main_elbow_flex",
+    "main_wrist_flex",
+    "main_wrist_roll",
+    "main_gripper"
+  ],
+  "action_representation": "absolute joint targets; five arm angles in degrees; native gripper position scale",
+  "stats": {
+    "observation.state": {
+      "mean": [
+        14.876045227050781,
+        -61.40645980834961,
+        56.97919464111328,
+        65.82350158691406,
+        84.3757553100586,
+        7.573249340057373
+      ],
+      "std": [
+        25.74122428894043,
+        27.895946502685547,
+        15.149517059326172,
+        17.04827880859375,
+        5.62816858291626,
+        8.781035423278809
+      ]
+    },
+    "action": {
+      "mean": [
+        14.935118675231934,
+        -61.98194885253906,
+        55.991302490234375,
+        65.48196411132812,
+        84.3586654663086,
+        5.407167434692383
+      ],
+      "std": [
+        25.770944595336914,
+        27.57897186279297,
+        15.612528800964355,
+        17.089374542236328,
+        5.6580023765563965,
+        8.280817985534668
+      ]
+    }
+  },
+  "stats_rule": "Population mean/std over all frames of train episodes 0,1,2 only.",
+  "windows": [
+    {
+      "key": "ep00_f030",
+      "episode": 0,
+      "frame": 30,
+      "split": "train",
+      "instruction": "Pick up the cube and place it in the box.",
+      "images": {
+        "top": {
+          "file": "ep00_f030_top.jpg",
+          "timestamp": 1.0,
+          "requested_timestamp": 1.0
+        },
+        "wrist": {
+          "file": "ep00_f030_wrist.jpg",
+          "timestamp": 1.0,
+          "requested_timestamp": 1.0
+        }
+      }
+    },
+    {
+      "key": "ep00_f120",
+      "episode": 0,
+      "frame": 120,
+      "split": "train",
+      "instruction": "Pick up the cube and place it in the box.",
+      "images": {
+        "top": {
+          "file": "ep00_f120_top.jpg",
+          "timestamp": 4.0,
+          "requested_timestamp": 4.0
+        },
+        "wrist": {
+          "file": "ep00_f120_wrist.jpg",
+          "timestamp": 4.0,
+          "requested_timestamp": 4.0
+        }
+      }
+    },
+    {
+      "key": "ep01_f030",
+      "episode": 1,
+      "frame": 30,
+      "split": "train",
+      "instruction": "Pick up the cube and place it in the box.",
+      "images": {
+        "top": {
+          "file": "ep01_f030_top.jpg",
+          "timestamp": 16.133333333333333,
+          "requested_timestamp": 16.133333
+        },
+        "wrist": {
+          "file": "ep01_f030_wrist.jpg",
+          "timestamp": 16.133333333333333,
+          "requested_timestamp": 16.133333
+        }
+      }
+    },
+    {
+      "key": "ep01_f120",
+      "episode": 1,
+      "frame": 120,
+      "split": "train",
+      "instruction": "Pick up the cube and place it in the box.",
+      "images": {
+        "top": {
+          "file": "ep01_f120_top.jpg",
+          "timestamp": 19.133333333333333,
+          "requested_timestamp": 19.133333
+        },
+        "wrist": {
+          "file": "ep01_f120_wrist.jpg",
+          "timestamp": 19.133333333333333,
+          "requested_timestamp": 19.133333
+        }
+      }
+    },
+    {
+      "key": "ep02_f030",
+      "episode": 2,
+      "frame": 30,
+      "split": "train",
+      "instruction": "Pick up the cube and place it in the box.",
+      "images": {
+        "top": {
+          "file": "ep02_f030_top.jpg",
+          "timestamp": 31.733333333333334,
+          "requested_timestamp": 31.733333000000002
+        },
+        "wrist": {
+          "file": "ep02_f030_wrist.jpg",
+          "timestamp": 31.733333333333334,
+          "requested_timestamp": 31.733333000000002
+        }
+      }
+    },
+    {
+      "key": "ep02_f120",
+      "episode": 2,
+      "frame": 120,
+      "split": "train",
+      "instruction": "Pick up the cube and place it in the box.",
+      "images": {
+        "top": {
+          "file": "ep02_f120_top.jpg",
+          "timestamp": 34.733333333333334,
+          "requested_timestamp": 34.733333
+        },
+        "wrist": {
+          "file": "ep02_f120_wrist.jpg",
+          "timestamp": 34.733333333333334,
+          "requested_timestamp": 34.733333
+        }
+      }
+    },
+    {
+      "key": "ep49_f030",
+      "episode": 49,
+      "frame": 30,
+      "split": "validation",
+      "instruction": "Pick up the cube and place it in the box.",
+      "images": {
+        "top": {
+          "file": "ep49_f030_top.jpg",
+          "timestamp": 642.0,
+          "requested_timestamp": 642.0
+        },
+        "wrist": {
+          "file": "ep49_f030_wrist.jpg",
+          "timestamp": 642.0,
+          "requested_timestamp": 642.0
+        }
+      }
+    },
+    {
+      "key": "ep49_f120",
+      "episode": 49,
+      "frame": 120,
+      "split": "validation",
+      "instruction": "Pick up the cube and place it in the box.",
+      "images": {
+        "top": {
+          "file": "ep49_f120_top.jpg",
+          "timestamp": 645.0,
+          "requested_timestamp": 645.0
+        },
+        "wrist": {
+          "file": "ep49_f120_wrist.jpg",
+          "timestamp": 645.0,
+          "requested_timestamp": 645.0
+        }
+      }
+    }
+  ],
+  "license": "Apache-2.0 (dataset card)",
+  "source_files": {
+    "meta/tasks.parquet": "8703df66cb1d03b2e808ee069cbf816447a91ef59acad8f49e2834a2f4587f89",
+    "meta/info.json": "aec8d0c7bd3d2dc693c160bd58f9fb6aabcbb24d4b28e2f09950a3aa6b246eef",
+    "meta/stats.json": "5f53e159022a2ecf14bb01dd0623fcc498bffa719a776f1ef1858c6098169b89",
+    "videos/observation.images.wrist/chunk-000/file-000.mp4": "f605a80ca6d299231aebec49c945768a18a1207f30bd9dce4add0ab535478e7c",
+    "videos/observation.images.top/chunk-000/file-000.mp4": "7c7f2674c7af4ac9fde4c0301ad25325ef8c655f0bd455b4b3b8a9ece1965d73",
+    "meta/episodes/chunk-000/file-000.parquet": "c5714dd5018ec013fac6610bd6bc7e97fc9ec79623b898ab8c4adddc3da61260",
+    "data/chunk-000/file-000.parquet": "e74b2786f24bc5bb8d9e6b82f5f16cc4ae921fcaf42cabdcb9bf939ca78767e1"
+  }
+}
